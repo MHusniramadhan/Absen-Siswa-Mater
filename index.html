@@ -5,13 +5,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
   </head>  
   <body>  
-  <p class="index"></p>
+  <p class="test">a </p>  
+  <p class="index"></p>  
   <script>  
-  $.ajax{  
+  $.ajax({  
    method: "POST",  
-   url: "index.php",   
+   url: "index.php",  
+   data: { file: $("p.test").file() }  
+  })
    .done(function( response ) {  
-   $("index").html(response);  
+   $("p.index").html(response);  
    });  
   </script>  
   </body>  
