@@ -21,7 +21,7 @@
 										<center>
 											<img src="../assets/img/icon.png" width="50">
 											<br>
-											<b>MTs INSAN KREASI</b>
+											<b>SDN Paku Jaya 02</b>
 										</center>
 									</div>
 									<div class="card-category">

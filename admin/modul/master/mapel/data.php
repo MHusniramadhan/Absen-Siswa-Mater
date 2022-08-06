@@ -37,9 +37,9 @@
                  <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Kode</th>
-                            <th>Nama Mapel</th>
+                            <th>Nama Tema</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>  
@@ -63,7 +63,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                              <h4 id="exampleModalLabel" class="modal-title">Edit Mapel</h4>
+                              <h4 id="exampleModalLabel" class="modal-title">Edit Tema</h4>
                               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                             </div>
             <div class="modal-body">
@@ -71,7 +71,7 @@
                   <div class="row">
                     <div class="col-md-10">
                           <div class="form-group">
-                        <label>Nama mapel</label>
+                        <label>Nama Tema</label>
                          <input name="id" type="hidden" value="<?=$k['id_mapel'] ?>">
                         <input name="mapel" type="text" value="<?=$k['mapel'] ?>" class="form-control">
                     </div>
@@ -128,18 +128,18 @@
     <div class="modal-dialog">
         <div class="modal-content">
            <div class="modal-header">
-                              <h4 id="exampleModalLabel" class="modal-title">Tambah Mapel</h4>
+                              <h4 id="exampleModalLabel" class="modal-title">Tambah Tema</h4>
                               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                             </div>
             <div class="modal-body">
                 <form action="" method="post" class="form-horizontal">
                      <div class="form-group">
-                        <label>Kode mapel</label>
-                        <input name="kode" type="text" value="MP-<?=time() ?>" class="form-control" readonly>
+                        <label>Kode Tema</label>
+                        <input name="kode" type="text" value="Tema-<?=time() ?>" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Nama mapel</label>
-                        <input name="mapel" type="text" placeholder="Nama mapel .." class="form-control">
+                        <label>Nama Tema</label>
+                        <input name="mapel" type="text" placeholder="Nama Tema.." class="form-control">
                     </div>
 
                    

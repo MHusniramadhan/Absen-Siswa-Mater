@@ -37,8 +37,8 @@ $walikelas = mysqli_query($con,"SELECT * FROM tb_walikelas INNER JOIN tb_guru ON
 foreach ($walikelas as $walas) 
 
 $tglBulan = $db['tgl_absen'];
-$tglTerakhir = date('t',strtotime($tglBulan));
-
+// $tglTerakhir = date('t',strtotime($tglBulan));
+$tglTerakhir=25;
 
  ?>
  <style>
@@ -52,7 +52,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
  			<center>
  				
  				<h1>
- 					ABSESNSI SISWA <br>
+ 					ABSENSI SISWA <br>
  					<small> SDN Paku Jaya 02</small> 
  				</h1>
  				<hr>
@@ -114,7 +114,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
     <td rowspan="2" bgcolor="#EFEBE9" align="center">NO</td>
     <td rowspan="2" bgcolor="#EFEBE9">NAMA SISWA</td>
     <td rowspan="2" bgcolor="#EFEBE9" align="center">L/P</td>
-    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN KE- DAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?> <?= date('Y',strtotime($tglBulan)); ?></b></td>
+    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN KE- DAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?></b></td>
     <td colspan="3" align="center" bgcolor="#EFEBE9">JUMLAH</td>
   </tr>
   <tr>
@@ -125,6 +125,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
 
 
 	?> 
+	<td bgcolor="#7FFFD4" align="center">H</td>
 	<td bgcolor="#FFC107" align="center">S</td>
 	<td bgcolor="#4CAF50" align="center">I</td>
 	<td bgcolor="#D50000" align="center">A</td>
@@ -177,7 +178,16 @@ $tglTerakhir = date('t',strtotime($tglBulan));
 		}
 
 		?>
+ <td align="center" style="font-weight: bold;">
+
+<?php 
+$hadir = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS hadir FROM _logabsensi WHERE id_siswa='$d[id_siswa]' and ket='H' and MONTH(tgl_absen)='$bulan' and id_mengajar='$_GET[pelajaran]' "));
+echo $hadir['hadir'];
+
+?>
+		
 <td align="center" style="font-weight: bold;">
+
 <?php 
 $sakit = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS sakit FROM _logabsensi WHERE id_siswa='$d[id_siswa]' and ket='S' and MONTH(tgl_absen)='$bulan' and id_mengajar='$_GET[pelajaran]' "));
 echo $sakit['sakit'];
@@ -206,23 +216,9 @@ echo $alfa['alfa'];
 <p></p>
 <table width="100%">
 	<tr>
-	<!-- 	<td align="left">
-			<p>
-				Mengetahui
-			</p>
-			<p>
-				Kepala Sekolah
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				-----------------------------
-			</p>
-		</td> -->
 		<td align="right">
 			<p>
-				Agam, <?php echo date('d-F-Y'); ?>
+				Tangerang, <?php echo date('d-F-Y'); ?>
 			</p>
 			<p>
 				Kepala Sekolah
@@ -233,7 +229,7 @@ echo $alfa['alfa'];
 				<br>
 				SUAIB,S.pd <br>
 				----------------------<br>
-				NIP.197411092002102003
+				NIP.196203131983051007
 			</p>
 		</td>
 	</tr>

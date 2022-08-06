@@ -88,7 +88,17 @@
    <tr>
     <td>Tahun Masuk</td>
     <td>:</td>
-    <td><input name="th_masuk" type="number" class="form-control" placeholder="2019"></td>
+    <td><input name="th_masuk" type="number" class="form-control" placeholder="2017"></td>
+  </tr>
+  <tr>
+  <td>Password</td>
+  <td>:</td>
+  <td><input type="password" name="password" class="form-control" id="password" placeholder="Password" required></td>
+  </tr>
+  <tr>
+  <td>Ulangi Password</td>
+  <td>:</td>
+  <td><input type="password" name="password2" class="form-control" id="password" placeholder="Ulangi Password" required></td>
   </tr>
   <tr>
     <td>Pas Foto</td>

@@ -37,7 +37,7 @@
                  <table class="table table-hover table-sm">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Kelas</th>
                             <th>Nama Wali Kelas</th>
                             <th>Opsi</th>

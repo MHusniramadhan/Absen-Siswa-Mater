@@ -75,7 +75,7 @@
                             <td><img src="../assets/img/user/<?=$k['foto'] ?>" width="45" height="45"></td>
                               <td>
               <a class="btn btn-info btn-sm" href="?page=kepsek&act=edit&id=<?=$k['id_kepsek'] ?>"><i class="far fa-edit"></i></a>
-              <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=kepsek&act=del&id=<?=$g['id_kepsek'] ?>"><i class="fas fa-trash"></i>
+              <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=kepsek&act=del&id=<?=$k['id_kepsek'] ?>"><i class="fas fa-trash"></i>
               </a>
 
                             </td>

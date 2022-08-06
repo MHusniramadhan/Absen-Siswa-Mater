@@ -67,7 +67,7 @@ include 'config/db.php';
                             <option value="1">Guru</option>
                             <option value="2">Siswa</option>
                             <option value="3">Kepala Sekolah</option>
-                            <option value="4">Wali Kelas</option>
+                            <!-- <option value="4">Wali Kelas</option> -->
                         </select>
                     </div>
                     <br>

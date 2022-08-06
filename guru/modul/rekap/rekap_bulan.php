@@ -52,7 +52,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
  			<center>
  				
  				<h1>
- 					ABSESNSI SISWA <br>
+ 					ABSENSI SISWA <br>
  					<small> SDN Paku Jaya 02</small>
  				</h1>
  				<hr>
@@ -85,10 +85,6 @@ $tglTerakhir = date('t',strtotime($tglBulan));
     		<li>A = Absen</li>
     		<li>C = Cabut</li>
     	</ul>
-<!-- <p>H= Hadir</p>
-<p>I = Izin</p>
-<p>S = Sakit</p>
-<p>A = Absesn    </p> -->
 </td>
   </tr>
   <tr>
@@ -124,7 +120,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
     <td rowspan="2" bgcolor="#EFEBE9" align="center">NO</td>
     <td rowspan="2" bgcolor="#EFEBE9">NAMA SISWA</td>
     <td rowspan="2" bgcolor="#EFEBE9" align="center">L/P</td>
-    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?> <?= date('Y',strtotime($tglBulan)); ?></b></td>
+    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?> </b></td>
     <td colspan="5" align="center" bgcolor="#EFEBE9">JUMLAH</td>
   </tr>
   <tr>
@@ -135,6 +131,7 @@ $tglTerakhir = date('t',strtotime($tglBulan));
 
 
 	?> 
+	<td bgcolor="#7FFFD4" align="center">H</td>
 	<td bgcolor="#FFC107" align="center">S</td>
 	<td bgcolor="#4CAF50" align="center">I</td>
 	<td bgcolor="#D50000" align="center">A</td>
@@ -196,6 +193,16 @@ $tglTerakhir = date('t',strtotime($tglBulan));
 		}
 
 		?>
+<td align="center" style="font-weight: bold;">
+<?php 
+$hadir = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS hadir FROM _logabsensi
+	INNER JOIN tb_mengajar ON _logabsensi.id_mengajar=tb_mengajar.id_mengajar
+		INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
+		INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
+ WHERE _logabsensi.id_siswa='$ds[id_siswa]' and _logabsensi.ket='H' and MONTH(tgl_absen)='$bulan' and _logabsensi.id_mengajar='$_GET[pelajaran]' AND tb_mengajar.id_mkelas='$_GET[kelas]'  AND tb_thajaran.status=1 AND tb_semester.status=1 "));
+echo $hadir['hadir'];
+
+?>
 <td align="center" style="font-weight: bold;">
 <?php 
 $sakit = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS sakit FROM _logabsensi
@@ -277,7 +284,7 @@ echo $cabut['cabut'];
 		</td> -->
 		<td align="right">
 			<p>
-				Agam, <?php echo date('d-F-Y'); ?>
+				Tangerang, <?php echo date('d-F-Y'); ?>
 			</p>
 			<p>
 				Kepala Sekolah
@@ -286,9 +293,9 @@ echo $cabut['cabut'];
 				<br>
 				<br>
 				<br>
-				NURMIZA,MA <br>
+				SUAIB,S.pd <br>
 				----------------------<br>
-				NIP.197411092002102003
+				NIP.196203131983051007
 			</p>
 		</td>
 	</tr>

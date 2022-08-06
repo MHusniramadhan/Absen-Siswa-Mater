@@ -271,7 +271,6 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 				}elseif ($page=='rekap') {
 					if ($act=='') {
 						include 'modul/rekap/rekap_absen.php';
-
 					}					
 				}elseif ($page=='jadwal') {
 					if ($act=='') {

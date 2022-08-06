@@ -177,6 +177,22 @@ $data = mysqli_fetch_array($sql);
 							<a href="?page=laporan">
 								<i class="fas fa-clipboard-check"></i>
 								<p>Laporan Presensi Siswa</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="rekapAbsen">
+								<ul class="nav nav-collapse">
+									<?php 
+									$kelas = mysqli_query($con,"SELECT * FROM tb_mkelas ORDER BY id_mkelas ASC");
+									foreach ($kelas as $k) {?>
+									<li>
+										<a href="?page=rekap&kelas=<?=$k['id_mkelas'] ?> ">
+											<span class="sub-item">KELAS <?=strtoupper($k['nama_kelas']); ?></span>
+										</a>
+									</li>
+								<?php } ?>
+								</ul>
+							</div>
+						</li>
 							</a>
 						
 						</li>
@@ -220,9 +236,14 @@ $data = mysqli_fetch_array($sql);
 
 				elseif ($page=='') {
 					include 'modul/home.php';
-				}else{
-					echo "<b>Tidak ada Halaman</b>";
-				}
+				}elseif ($page=='laporan') {
+					if ($act=='') {
+						include 'modul/rekap/rekap_absen.php';
+					}elseif ($act='rekap-perbulan') {
+						include 'modul/rekap/rekap_perbulan.php';
+					}
+				}					
+		
 
 
 				 ?>

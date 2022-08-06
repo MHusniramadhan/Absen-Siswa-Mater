@@ -2,7 +2,7 @@
 
 if (isset($_POST['saveGuru'])) {
 
-    $pass= sha1($_POST['nip']);
+    $pass= MD5($_POST['password']);
 
 		$sumber = @$_FILES['foto']['tmp_name'];
 		$target = '../assets/img/user/';
@@ -35,7 +35,7 @@ if (isset($_POST['saveGuru'])) {
 
   }elseif (isset($_POST['editGuru'])) {
 
-  	 $pass= sha1($_POST['email']);
+  	 $pass= MD5($_POST['email']);
 		$gambar = @$_FILES['foto']['name'];
 		if (!empty($gambar)) {
 		move_uploaded_file($_FILES['foto']['tmp_name'],"../assets/img/user/$gambar");

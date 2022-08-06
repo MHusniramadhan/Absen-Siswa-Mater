@@ -484,8 +484,8 @@ $data = mysqli_fetch_array($sql);
 									<?php 
 									if (isset($_POST['changePassword'])) {
 										$passLama = $data['password'];
-										$pass = sha1($_POST['pass']);
-										$newPass = sha1($_POST['pass1']);
+										$pass = MD5($_POST['pass']);
+										$newPass = MD5($_POST['pass1']);
 
 										if ($passLama == $pass) {
 											$set = mysqli_query($con,"UPDATE tb_admin SET password='$newPass' WHERE id_admin='$data[id_admin]' ");

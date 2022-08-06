@@ -24,14 +24,16 @@
           <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Form Entry Siswa</h3>
-                    </div>
+                  <div class="card-header">
+                  <div class="card-title">
+                     <a href="?page=siswa&act=add" class="btn btn-primary btn-sm text-white"><i class="fa fa-plus"></i> Tambah</a>
+                  </div>
+                </div>
                     <div class="card-body">
                  <table id="basic-datatables" class="display table table-striped table-hover" >
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>NIS/NISN</th>
                             <th>Nama Siswa</th>
                             <th>Kelas</th>

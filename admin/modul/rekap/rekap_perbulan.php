@@ -47,14 +47,14 @@ foreach ($walikelas as $walas)
 <table width="100%">
  	<tr>
  		<td>
- 			<img src="../assets/img/mts.png" width="130">
+ 			<img src="../assets/img/icon.png" width="130">
  		</td>
  		<td>
  			
  				
  				<h1>
- 					ABSESNSI SISWA <br>
- 					<small> MTs INSAN KREASI</small>
+ 					ABSENSI SISWA <br>
+ 					<small> SDN Paku Jaya 02</small>
  				</h1>
  		<!-- 		<hr>
  				<em>
@@ -111,7 +111,7 @@ foreach ($walikelas as $walas)
 
                 </div>
 			<div class="card-body">
-				<a target="_blank" href="../guru/modul/rekap/rekap_persemester.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET[kelas] ?>" class="btn btn-default">
+				<a target="_blank" href="../guru/modul/rekap/rekap_persemester.php?pelajaran=<?=$_GET['pelajaran'] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET['kelas'] ?>" class="btn btn-default">
 <span class="btn-label">
 <i class="fas fa-print"></i>
 </span>
@@ -136,9 +136,9 @@ foreach ($walikelas as $walas)
 			 	<?php 
 			 	$bulan = date('m',strtotime($bulan['tgl_absen']));
 
-			$tglBulan = $bulan['tgl_absen'];
-			$tglTerakhir = date('t',strtotime($tglBulan));
-
+			// $tglBulan = $bulan['tgl_absen'];
+			// $tglTerakhir = date('t',strtotime($tglBulan));
+		    $tglTerakhir=25;
 
 
 			 	 ?>
@@ -147,13 +147,13 @@ foreach ($walikelas as $walas)
 				<hr>
 
 <p>
-	<a target="_blank" href="../guru/modul/rekap/rekap_bulanxl.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET[kelas] ?>" class="btn btn-success">
+	<a target="_blank" href="../guru/modul/rekap/rekap_bulanxl.php?pelajaran=<?=$_GET['pelajaran'] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET['kelas'] ?>" class="btn btn-success">
 <span class="btn-label">
 <i class="far fa-file-excel"></i>
 </span>
 Export Excell
 </a>
-<a target="_blank" href="../guru/modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET[kelas] ?>" class="btn btn-default">
+<a target="_blank" href="../guru/modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET['pelajaran'] ?>&bulan=<?=$bulan;?>&kelas=<?=$_GET['kelas'] ?>" class="btn btn-default">
 <span class="btn-label">
 <i class="fas fa-print"></i>
 </span>
@@ -169,7 +169,7 @@ CETAK BULAN (<?php echo strtoupper(namaBulan($bulan));?>)
 				    <td rowspan="2" bgcolor="#EFEBE9" align="center">NO</td>
 				    <td rowspan="2" bgcolor="#EFEBE9">NAMA SISWA</td>
 				    <td rowspan="2" bgcolor="#EFEBE9" align="center">L/P</td>
-				    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN KE- DAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?> <?= date('Y',strtotime($tglBulan)); ?></b></td>
+				    <td colspan="<?=$tglTerakhir;?>" style="padding: 8px;">PERTEMUAN KE- DAN BULAN : <b style="text-transform: uppercase;"><?php echo namaBulan($bulan);?></b></td>
 				    <td colspan="3" align="center" bgcolor="#EFEBE9">JUMLAH</td>
 				  </tr>
 				  <tr>
@@ -180,6 +180,7 @@ CETAK BULAN (<?php echo strtoupper(namaBulan($bulan));?>)
 
 
 					?> 
+					<td bgcolor="#7FFFD4" align="center">H</td>
 					<td bgcolor="#FFC107" align="center">S</td>
 					<td bgcolor="#4CAF50" align="center">I</td>
 					<td bgcolor="#D50000" align="center">A</td>
@@ -236,6 +237,12 @@ CETAK BULAN (<?php echo strtoupper(namaBulan($bulan));?>)
 						}
 
 						?>
+						<td align="center" style="font-weight: bold;">
+				<?php 
+				$hadir = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS hadir FROM _logabsensi WHERE id_siswa='$d[id_siswa]' and ket='H' and MONTH(tgl_absen)='$bulan' and id_mengajar='$_GET[pelajaran]' "));
+				echo $hadir['hadir'];
+
+				?>
 				<td align="center" style="font-weight: bold;">
 				<?php 
 				$sakit = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS sakit FROM _logabsensi WHERE id_siswa='$d[id_siswa]' and ket='S' and MONTH(tgl_absen)='$bulan' and id_mengajar='$_GET[pelajaran]' "));

@@ -56,21 +56,13 @@ foreach ($kelasMengajar as $d)
 				<strong>REKAP SEMESTER (<?=strtoupper($d['semester']) ?> - <b><?=strtoupper($d['tahun_ajaran']) ?></b>)</strong> 
 				</div>
 				</a>
+				
 							
-										
-<!-- hr
-							<div class="card">
-								<div class="card-body"> -->
-								<!-- 	<div class="card-list">
 										<?php 
 										$bulan = date('m');
 
 										 ?>
-										<a href="modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan;?>" class="btn btn-success btn-block text-left" target="_blank"><i class=" fas fa-file-alt"></i> BULAN SEKARANG</a>	
 										
-										<a href="modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan-1;?>" class="btn btn-warning btn-block text-left" target="_blank"><i class=" fas fa-file-alt"></i> BULAN SEBELUMYA</a>	
-										
-									</div> -->
 
 									<?php 
 									// tampilkan data absen setiap bulan, berdasarkan tahun ajaran yg aktif
@@ -87,7 +79,7 @@ foreach ($kelasMengajar as $d)
 									$bulan = date('m',strtotime($bulan['tgl_absen']));
 									?>
 
-									<a target="_blank" href="modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET[pelajaran] ?>&bulan=<?=$bulan;?>&kelas=<?=$d['id_mkelas'] ?>" style="text-decoration: none;" class="text-primary">
+									<a target="_blank" href="modul/rekap/rekap_bulan.php?pelajaran=<?=$_GET['pelajaran'] ?>&bulan=<?=$bulan;?>&kelas=<?=$d['id_mkelas'] ?>" style="text-decoration: none;" class="text-primary">
 									<div class="alert alert-primary alert-dismissible" role="alert">
 									<strong>REKAP BULAN (<?= strtoupper(namaBulan($bulan)) ?> <?= strtoupper(date('Y')) ?>) </strong> 
 									</div>

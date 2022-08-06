@@ -90,7 +90,7 @@ $tglTerakhir = 25;
  			<center>
  				
  				<h1>
- 					ABSESNSI SISWA <br>
+ 					ABSENSI SISWA <br>
  					<small> SDN PAKU JAYA 02</small>
  				</h1>
  				<hr>
@@ -173,6 +173,7 @@ $tglTerakhir = 25;
 
 
 	?> 
+	<td bgcolor="#7FFFD4" align="center">H</td>
 	<td bgcolor="#FFC107" align="center">S</td>
 	<td bgcolor="#4CAF50" align="center">I</td>
 	<td bgcolor="#D50000" align="center">T</td>
@@ -225,13 +226,24 @@ $tglTerakhir = 25;
 
 		 ?>
 </td>
+
+<?php
+}
+?>
+
 		
+<td align="center" style="font-weight: bold;">
 		<?php
 
-
-		}
+$hadir = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS hadir FROM _logabsensi
+	INNER JOIN tb_mengajar ON _logabsensi.id_mengajar=tb_mengajar.id_mengajar
+		INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
+		INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
+ WHERE _logabsensi.id_siswa='$ds[id_siswa]' and _logabsensi.ket='H' and _logabsensi.id_mengajar='$_GET[pelajaran]' AND tb_mengajar.id_mkelas='$_GET[kelas]'  AND tb_thajaran.status=1 AND tb_semester.status=1 "));
+echo $hadir['hadir'];
 
 		?>
+
 <td align="center" style="font-weight: bold;">
 <?php 
 $sakit = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(ket) AS sakit FROM _logabsensi
@@ -323,20 +335,6 @@ echo $cabut['cabut'];
 <p></p>
 <table width="100%">
 	<tr>
-	<!-- 	<td align="left">
-			<p>
-				Mengetahui
-			</p>
-			<p>
-				Kepala Sekolah
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				-----------------------------
-			</p>
-		</td> -->
 		<td align="right">
 			<p>
 				Tanggerang, <?php echo date('d-F-Y'); ?>

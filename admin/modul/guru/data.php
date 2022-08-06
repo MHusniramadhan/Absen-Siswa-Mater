@@ -35,7 +35,7 @@
                    <table id="basic-datatables" class="display table table-striped table-hover" >
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nip</th>
                             <th>Nama Guru</th>
                             <th>Email</th>
@@ -44,7 +44,7 @@
                             <th>Opsi</th>
                         </tr>
                     </thead>  
-                    <tfoot>
+                    <!-- <tfoot>
                         <tr>
                           <th>#</th>
                             <th>Nip</th>
@@ -54,7 +54,7 @@
                             <th>Foto</th>
                             <th>Opsi</th>
                         </tr>
-                      </tfoot>
+                      </tfoot> -->
                     <tbody>
                         <?php 
                         $no=1;

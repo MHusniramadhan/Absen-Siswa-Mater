@@ -2,7 +2,7 @@
 
 if (isset($_POST['saveSiswa'])) {
 
-        $pass= sha1($_POST['nis']);
+        $pass= MD5($_POST['password']);
     	$sumber = @$_FILES['foto']['tmp_name'];
 		$target = '../assets/img/user/';
 		$nama_gambar = @$_FILES['foto']['name'];

@@ -8,7 +8,7 @@ INNER JOIN tb_guru ON tb_mengajar.id_guru=tb_guru.id_guru
 
 INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
 INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
-WHERE tb_mengajar.id_mkelas='$_GET[kelas]' AND tb_thajaran.status=1 AND tb_semester.id_semester=1 ");
+WHERE tb_mengajar.id_mkelas='$_GET[kelas]' AND tb_thajaran.status=1 AND tb_semester.id_semester=4 ");
 
 foreach ($kelasMengajar as $d) 
 
@@ -72,7 +72,7 @@ foreach ($kelasMengajar as $d)
 													<code><?=$mp['nama_guru']; ?></code>
 												</td>
 												<td>
-												<a href="?page=rekap&act=rekap-perbulan&pelajaran=<?=$mp[id_mengajar] ?>&kelas=<?=$_GET[kelas] ?>" class="btn btn-default">
+												<a href="?page=rekap&act=rekap-perbulan&pelajaran=<?=$mp['id_mengajar'] ?>&kelas=<?=$_GET['kelas'] ?>" class="btn btn-default">
 												<span class="btn-label">
 												<i class="fas fa-clipboard"></i>
 												</span>

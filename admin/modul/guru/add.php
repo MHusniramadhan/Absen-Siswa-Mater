@@ -44,7 +44,14 @@
 								<label>Email</label>
 								<input name="email" type="text" class="form-control" placeholder="Email">
 							</div>
-
+              <div class="form-group">
+              <label>Password</label>
+               <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                 <div class="form-group">
+               <label>Ulangi Password</label>
+                <input type="password" name="password2" class="form-control" id="password" placeholder="Ulangi Password" required>
+               </div>
 							<div class="form-group">
 								<p>
 									<img src="../assets/img/user/<?=$data['foto']; ?>" class="img-fluid rounded-circle kotak" style="height: 65px; width: 65px;">
