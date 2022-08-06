@@ -7,11 +7,9 @@
   <body>  
   <a class="index"></a>
   <script>  
-  $.ajax({  
+  $.ajax{  
    method: "POST",  
-   url: "index.php",  
-  data: { text: $("index").text() }  
-  })  
+   url: "index.php",   
    .done(function( response ) {  
    $("index").html(response);  
    });  
